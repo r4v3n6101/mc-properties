@@ -1,0 +1,2 @@
+# mc-properties
+Simple example
