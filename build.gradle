@@ -30,3 +30,13 @@ minecraft {
 
 targetCompatibility = 1.8
 sourceCompatibility = 1.8
+
+repositories {
+    maven {
+        url = 'https://jitpack.io'
+    }
+}
+
+dependencies {
+    compile 'com.github.r4v3n6101:mc-properties:master-SNAPSHOT'
+}
