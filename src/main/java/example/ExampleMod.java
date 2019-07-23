@@ -16,7 +16,9 @@ import properties.data.impl.IntProperty;
 import properties.data.impl.NBTBaseProperty;
 import properties.event.InitPropertiesEvent;
 
-@Mod(modid = "example")
+import static example.Constants.*;
+
+@Mod(modid = MODID, name = NAME, version = VERSION)
 public class ExampleMod {
 
     private static int ticker = 0;
@@ -39,7 +41,7 @@ public class ExampleMod {
     @SubscribeEvent
     public void tick(TickEvent.ServerTickEvent event) {
         if (event.phase == TickEvent.Phase.END) {
-            ticker++;
+            ticker++; // FIXME : not working as supposed to
         }
     }
 

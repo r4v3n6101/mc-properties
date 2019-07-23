@@ -13,7 +13,7 @@ public class TestInventory extends InventoryBasic {
     private EntityPlayer player;
 
     public TestInventory(EntityPlayer player) {
-        super("Test", true, 54);
+        super("TestInventory", true, 54);
         this.player = player;
     }
 
