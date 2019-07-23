@@ -6,10 +6,12 @@ import network.NetworkManager;
 import properties.event.EventHandler;
 import properties.network.PropertiesPacketCallback;
 
-@Mod(modid = "custom_properties", name = "CustomProperties")
+import static properties.Constants.*;
+
+@Mod(modid = MODID, name = NAME, version = VERSION)
 public class ModMain {
 
-    public static NetworkManager network = new NetworkManager("custom_properties", new PropertiesPacketCallback());
+    public static NetworkManager network = new NetworkManager(MODID, new PropertiesPacketCallback());
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {

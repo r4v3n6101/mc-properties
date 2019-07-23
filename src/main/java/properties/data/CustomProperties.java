@@ -10,19 +10,20 @@ import net.minecraftforge.common.IExtendedEntityProperties;
 import java.util.HashMap;
 import java.util.Map;
 
+import static properties.Constants.MODID;
+
 public class CustomProperties implements IExtendedEntityProperties {
 
-    private static final String PROP_ID = "CustomProperties";
     private Map<String, Property> properties = new HashMap<>();
 
     private CustomProperties() {
     }
 
     public static CustomProperties get(Entity entity) {
-        if (entity.getExtendedProperties(PROP_ID) == null) {
-            entity.registerExtendedProperties(PROP_ID, new CustomProperties());
+        if (entity.getExtendedProperties(MODID) == null) {
+            entity.registerExtendedProperties(MODID, new CustomProperties());
         }
-        return (CustomProperties) entity.getExtendedProperties(PROP_ID);
+        return (CustomProperties) entity.getExtendedProperties(MODID);
     }
 
     public Map<String, Property> getProperties() {
@@ -61,12 +62,12 @@ public class CustomProperties implements IExtendedEntityProperties {
     public void saveNBTData(NBTTagCompound compound) {
         NBTTagCompound rootTag = new NBTTagCompound();
         properties.forEach((key, value) -> rootTag.setTag(key, value.toNbt()));
-        compound.setTag(PROP_ID, rootTag);
+        compound.setTag(MODID, rootTag);
     }
 
     @Override
     public void loadNBTData(NBTTagCompound compound) {
-        NBTTagCompound rootTag = compound.getCompoundTag(PROP_ID);
+        NBTTagCompound rootTag = compound.getCompoundTag(MODID);
         properties.forEach((key, value) -> value.loadFromNbt(rootTag.getTag(key)));
     }
 

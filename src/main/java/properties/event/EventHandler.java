@@ -43,7 +43,8 @@ public class EventHandler {
             NBTTagCompound syncTag = CustomProperties.get(entity).makeSyncTag();
 
             if (syncTag.hasKey("list")) {
-                ModMain.network.sendToClients(ModMain.network.createPacket(0, syncTag)); // not to all
+                // TODO : send to all or not?
+                ModMain.network.sendToClients(ModMain.network.createPacket(0, syncTag));
             }
         }
     }
